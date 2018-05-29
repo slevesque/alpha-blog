@@ -10,16 +10,11 @@
   </head>
 
   <body>
-    <h1><%= link_to image_tag('logo-alpha-blog.png'), pages_home_path %></h1>
-
-    <ul>
-      <li><%= link_to 'Home', pages_home_path %></li>
-      <li><%= link_to 'Blog', articles_path %></li>
-      <li><%= link_to 'About', pages_about_path %></li>
-    </ul>
-
+    <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
