@@ -17,6 +17,14 @@
       <li><%= link_to 'About', pages_about_path %></li>
     </ul>
 
+    <% if flash.any? %>
+      <ul class="flash-message">
+        <% flash.each do |name, message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
