@@ -9,3 +9,10 @@ $navbar-default-bg: #66f;
 #top-navbar li a {color: #fff;}
 .jumbotron {background-image: asset-url('background.jpg'); background-size: cover;}
 .jumbotron h1 {color: #ccc; text-transform: uppercase; padding-bottom: 1em;}
+
+footer {
+  margin-top: 10em;
+  border-top: 1px solid #ccc;
+  font-size: x-small;
+  color: #ccc;
+}
