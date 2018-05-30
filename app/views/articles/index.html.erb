@@ -1,26 +1,32 @@
+
+<div class="row">
+<div class="col-xs-10">
 <h1>All articles</h1>
+</div>
+<div class="col-xs-2">
+  <%= link_to 'Create',  new_article_path, class: 'pull-right btn btn-lg btn-primary' %>
+</div>
+</div>
 
-<%= link_to 'Create new article',  new_article_path %>
 
-<table>
+<table class="table table-hover table-condensed">
   <thead>
-    <th>Id</th>
     <th>Title</th>
-    <th>Description</th>
-    <th>Create at</th>
-    <th>Updated at</th>
+    <th class="text-right">Create at</th>
+    <th class="text-right">Updated at</th>
   </thead>
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.id %></td>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td><%= article.create_at %></td>
-        <td><%= article.updated_at %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure ?'} %></td>
+        <td><%= link_to article.title, article_path(article) %></td>
+        <td class="text-right"><%= article.create_at %></td>
+        <td class="text-right"><%= article.updated_at %></td>
+        <td class="text-right">
+          <div class="btn-group">
+            <%= link_to 'Edit', edit_article_path(article) %>
+            <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure ?'} %>
+            </div>
+        </td>
       </tr>
     <% end %>
   <tbody>
