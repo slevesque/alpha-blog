@@ -12,13 +12,15 @@
         <td><%= link_to user.username, user_path(user) %></td>
         <td class="text-right"><%= user.email%></td>
         <td class="text-right"><%= user.articles.count %></td>
-        <td class="text-right">
-          <div class="btn-group">
-            <%= link_to 'Edit', edit_user_path(user) %>
-            <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'Are you sure ?'} %>
+        <% if logged_in? %>
+          <td class="text-right">
+            <div class="btn-group">
+              <%= link_to 'Edit', edit_user_path(user) %>
+              <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'Are you sure ?'} %>
             </div>
-        </td>
+          </td>
+        <% end %>
       </tr>
     <% end %>
-  <tbody>
+    <tbody>
 </table>
