@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create([
-  {username: 'slevesque', email: 'slevesque@gezere.com', password_digest: '$2a$10$6tjgTwdPG7DySw8YM5OJXu3964jA4pYe2xKYzbKKJYOKrgOK.skYm'}
+  {id: 1, username: 'admin', email: 'admin@gezere.com', password_digest: '$2a$10$6tjgTwdPG7DySw8YM5OJXu3964jA4pYe2xKYzbKKJYOKrgOK.skYm', admin: true},
+  {id: 2, username: 'user', email: 'user@gezere.com', password_digest: '$2a$10$6tjgTwdPG7DySw8YM5OJXu3964jA4pYe2xKYzbKKJYOKrgOK.skYm', admin: false}
 ])
-# {username: 'slevesque', email: 'slevesque@gezere.com', password: '$2a$10$6tjgTwdPG7DySw8YM5OJXu3964jA4pYe2xKYzbKKJYOKrgOK.skYm'}
 
 articles = Article.create([
   {title: 'My first article', description: 'My first article description', user_id: 1},
   {title: 'My second article', description: 'My second article description', user_id: 1}
+  {title: 'My third article', description: 'My third article description', user_id: 2}
 ])
