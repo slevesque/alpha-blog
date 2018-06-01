@@ -1,6 +1,7 @@
 <table class="table table-hover table-condensed">
   <thead>
     <th>Title</th>
+    <th class="text-right">Author</th>
     <th class="text-right">Create at</th>
     <th class="text-right">Updated at</th>
   </thead>
@@ -8,9 +9,10 @@
     <% obj.each do |article| %>
       <tr>
         <td><%= link_to article.title, article_path(article) %></td>
+        <td class="text-right"><%= link_to article.user.username, user_path(article.user) %></td>
         <td class="text-right"><%= article.create_at %></td>
         <td class="text-right"><%= article.updated_at %></td>
-        <% if logged_in? %>
+        <% if logged_in? && current_user == article.user %>
           <td class="text-right">
             <div class="btn-group">
               <%= link_to 'Edit', edit_article_path(article) %>
