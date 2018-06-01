@@ -13,6 +13,6 @@ users = User.create([
 
 articles = Article.create([
   {title: 'My first article', description: 'My first article description', user_id: 1},
-  {title: 'My second article', description: 'My second article description', user_id: 1}
+  {title: 'My second article', description: 'My second article description', user_id: 1},
   {title: 'My third article', description: 'My third article description', user_id: 2}
 ])
