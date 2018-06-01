@@ -7,6 +7,8 @@ $navbar-default-bg: #66f;
 #logo:hover {color: #fff; text-decoration: none;}
 .center {text-align: center;}
 #top-navbar li a {color: #fff;}
+#top-login-navbar li a {color: #fff;}
+#top-login-navbar .dropdown-menu a {color: #66f;}
 .jumbotron {background-image: asset-url('background.jpg'); background-size: cover;}
 .jumbotron h1 {color: #ccc; text-transform: uppercase; padding-bottom: 1em;}
 
