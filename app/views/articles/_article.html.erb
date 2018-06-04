@@ -12,7 +12,7 @@
         <td class="text-right"><%= link_to article.user.username, user_path(article.user) %></td>
         <td class="text-right"><%= article.create_at %></td>
         <td class="text-right"><%= article.updated_at %></td>
-        <% if logged_in? && current_user == article.user %>
+        <% if logged_in? && (current_user == article.user || current_user.admin?) %>
           <td class="text-right">
             <div class="btn-group">
               <%= link_to 'Edit', edit_article_path(article) %>
