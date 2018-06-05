@@ -15,7 +15,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" id="top-navbar">
         <li><%= link_to 'Articles', articles_path %></li>
-        <li><%= link_to 'Categories', categories_path %></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'All categories', categories_path %></li>
+              <li role="separator" class="divider"></li>
+            <% Category.all.each do |category| %>
+              <li><%= link_to category.name, category_path(category) %></li>
+            <% end %>
+          </ul>
+        </li>
+
         <li><%= link_to 'Users', users_path %></li>
         <li><%= link_to 'About', pages_about_path %></li>
       </ul>
@@ -23,6 +34,9 @@
       <ul class="nav navbar-nav navbar-right" id="top-login-navbar">
         <% if logged_in? %>
             <li><%= link_to 'Create an article', new_article_path %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to 'Create a category', new_category_path %></li>
+            <% end %>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile<span class="caret"></span></a>
                 <ul class="dropdown-menu">
