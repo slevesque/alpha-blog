@@ -2,6 +2,7 @@
   <thead>
     <th>Title</th>
     <th class="text-right">Author</th>
+    <th class="text-right">Categories</th>
     <th class="text-right">Create at</th>
     <th class="text-right">Updated at</th>
   </thead>
@@ -10,6 +11,11 @@
       <tr>
         <td><%= link_to article.title, article_path(article) %></td>
         <td class="text-right"><%= link_to article.user.username, user_path(article.user) %></td>
+        <td class="text-right">
+          <% if article.categories.any? %>
+            <%= render article.categories %>
+          <% end %>
+        </td>
         <td class="text-right"><%= article.create_at %></td>
         <td class="text-right"><%= article.updated_at %></td>
         <% if logged_in? && (current_user == article.user || current_user.admin?) %>
